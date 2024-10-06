@@ -12,7 +12,7 @@ import (
 
 func main() {
 	newGame := flag.Bool("start", false, "to start a game")
-	aboutGame := flag.Bool("rules", false, "about the rule")
+	aboutGame := flag.Bool("about", false, "about the rule")
 
 	flag.Parse()
 
@@ -20,8 +20,9 @@ func main() {
 	case *newGame:
 		if pro := flag.Arg(0); pro == "pro" {
 			start.Start(true)
+		} else {
+			start.Start(false)
 		}
-		start.Start(false)
 	case *aboutGame:
 		about.About()
 	default:
